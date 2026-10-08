@@ -363,6 +363,32 @@
     @media (max-width: 759px) {
       .hero h1 { font-size: clamp(2.5rem, 12vw, 4.5rem); }
     }
+
+    .track-action { position: relative; z-index: 1; width: 100%; margin-top: 22px; text-align: center; }
+    .quiz-dialog { width: min(92vw, 720px); max-height: 88svh; overflow-y: auto; }
+    .quiz-dialog .modal-head { background: var(--blue); position: sticky; top: 0; z-index: 2; }
+    .quiz-dialog .modal-head h2 { font-size: clamp(1.1rem, 3vw, 1.5rem); line-height: 1.35; word-break: keep-all; }
+    .quiz-dialog .modal-close { flex-shrink: 0; }
+    .quiz-intro { padding: 22px 24px 0; word-break: keep-all; }
+    .quiz-intro p { margin: 8px 0; }
+    .quiz-status { display: inline-block; padding: 5px 12px; background: var(--yellow); border: 2px solid var(--ink); font-weight: 950; }
+    .quiz-questions { display: grid; gap: 18px; padding: 18px 24px; }
+    .quiz-question { margin: 0; padding: 16px; min-width: 0; border: 2px solid var(--ink); background: white; }
+    .quiz-question legend { padding: 0 6px; font-weight: 900; }
+    .quiz-question p { margin: 0 0 12px; }
+    .quiz-choices { display: flex; gap: 10px; }
+    .quiz-choice { min-width: 70px; min-height: 44px; border: 2px solid var(--ink); background: var(--paper); font-size: 1.2rem; font-weight: 950; cursor: pointer; }
+    .quiz-choice[aria-pressed="true"] { background: var(--yellow); box-shadow: 3px 3px 0 var(--ink); }
+    .quiz-choice:disabled { cursor: default; color: var(--ink); opacity: .65; }
+    .quiz-choice[aria-pressed="true"]:disabled { opacity: 1; }
+    .quiz-feedback { margin: 12px 0 0 !important; font-size: .92rem; font-weight: 650; }
+    .quiz-footer { padding: 0 24px 24px; }
+    .quiz-score { font-weight: 900; }
+    @media (max-width: 980px) {
+      .site-header { grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; }
+      .header-cta { display: inline-flex; padding-inline: 12px; min-height: 40px; font-size: .8rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
@@ -383,7 +409,7 @@
       <a href="#info">모집 안내</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="header-cta" href="#apply">모집 안내 보기</a>
+    <a class="header-cta" href="https://swcss.pusan.ac.kr/bootcamp">신청하기</a>
     <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">☰</button>
   </header>
 
@@ -462,6 +488,7 @@
               <div><small>본교육</small><strong>2026.12.28 — 2027.01.21</strong></div>
               <div><small>선발</small><strong>30명 · 대면</strong></div>
             </div>
+            <a class="solid-btn track-action" href="https://swcss.pusan.ac.kr/bootcamp/13">생성형AI PBL 신청하기 ↗</a>
           </div>
         </article>
         <article class="track-card edge reveal">
@@ -478,6 +505,7 @@
               <div><small>운영</small><strong>2026 겨울계절학기</strong></div>
               <div><small>상세 일정</small><strong>순차 공개 예정</strong></div>
             </div>
+            <button class="solid-btn track-action" type="button" id="deviceQuizBtn" aria-haspopup="dialog">온디바이스 PBL · 준비중 / OX 퀴즈</button>
           </div>
         </article>
       </div>
@@ -567,9 +595,10 @@
       <div class="apply-inner reveal">
         <div>
           <h2>이번 겨울,<br><span>완성까지</span> 가보자.</h2>
-          <p class="apply-copy">지원 전에 제출 서류와 일정을 체크해두세요. 공식 신청 링크는 모집 공지와 함께 공개될 예정이며, 자세한 사항은 부산대학교 AI융합교육원으로 문의할 수 있습니다.</p>
+          <p class="apply-copy">지원 전에 제출 서류와 일정을 확인하고 신청하세요. 생성형AI PBL은 신청 페이지에서 확인할 수 있으며, 온디바이스 PBL은 준비중입니다.</p>
         </div>
         <div class="apply-actions">
+          <a class="solid-btn" href="https://swcss.pusan.ac.kr/bootcamp">신청하기 ↗</a>
           <button class="solid-btn" type="button" id="checklistBtn">지원 체크리스트</button>
           <a class="outline-btn" href="mailto:lyj55@pusan.ac.kr?subject=2026%20겨울계절학기%20AI%20부트캠프%20문의">이메일 문의하기</a>
         </div>
@@ -623,10 +652,57 @@
       <label class="check-item"><input type="checkbox"> PCC 성적 증명서·참가동의서 준비</label>
       <label class="check-item"><input type="checkbox"> 12월 22일부터 대면 참여 일정 확보</label>
     </div>
-    <p class="modal-note">체크 상태는 이 브라우저에만 임시로 표시됩니다. 공식 신청 링크 공개 전 준비용으로 활용하세요.</p>
+    <p class="modal-note">체크 상태는 이 브라우저에만 임시로 표시됩니다. 공식 신청 페이지에서 최신 안내와 제출 서류를 확인하세요.</p>
+  </dialog>
+
+
+  <dialog class="modal quiz-dialog" id="deviceQuizDialog" aria-labelledby="deviceQuizTitle">
+    <div class="modal-head"><h2 id="deviceQuizTitle">온디바이스 PBL · 준비중</h2><button class="modal-close" type="button" aria-label="온디바이스 퀴즈 닫기">×</button></div>
+    <div class="quiz-intro"><span class="quiz-status">준비중</span><p>온디바이스 PBL 신청 안내는 준비중입니다.</p><p>기다리는 동안 OX 퀴즈 5문제로 온디바이스 AI를 알아보세요. 각 문제의 O 또는 X를 선택하면 정답과 해설을 확인할 수 있습니다.</p></div>
+    <div class="quiz-questions"><fieldset class="quiz-question"><legend>문제 1 / 5</legend><p>온디바이스 AI는 스마트폰이나 센서 기기 자체에서 AI 추론을 수행할 수 있다.</p><div class="quiz-choices"><button class="quiz-choice" type="button" data-question="0" data-answer="true" aria-label="문제 1 O" aria-pressed="false">O</button><button class="quiz-choice" type="button" data-question="0" data-answer="false" aria-label="문제 1 X" aria-pressed="false">X</button></div><p class="quiz-feedback" aria-live="polite" hidden></p></fieldset>
+<fieldset class="quiz-question"><legend>문제 2 / 5</legend><p>온디바이스 AI는 추론할 때 반드시 인터넷에 연결되어 있어야 한다.</p><div class="quiz-choices"><button class="quiz-choice" type="button" data-question="1" data-answer="true" aria-label="문제 2 O" aria-pressed="false">O</button><button class="quiz-choice" type="button" data-question="1" data-answer="false" aria-label="문제 2 X" aria-pressed="false">X</button></div><p class="quiz-feedback" aria-live="polite" hidden></p></fieldset>
+<fieldset class="quiz-question"><legend>문제 3 / 5</legend><p>모델 양자화는 모델 크기와 메모리 사용량을 줄이는 데 활용할 수 있다.</p><div class="quiz-choices"><button class="quiz-choice" type="button" data-question="2" data-answer="true" aria-label="문제 3 O" aria-pressed="false">O</button><button class="quiz-choice" type="button" data-question="2" data-answer="false" aria-label="문제 3 X" aria-pressed="false">X</button></div><p class="quiz-feedback" aria-live="polite" hidden></p></fieldset>
+<fieldset class="quiz-question"><legend>문제 4 / 5</legend><p>온디바이스 AI를 만들 때는 기기의 메모리와 배터리 사용량을 고려할 필요가 없다.</p><div class="quiz-choices"><button class="quiz-choice" type="button" data-question="3" data-answer="true" aria-label="문제 4 O" aria-pressed="false">O</button><button class="quiz-choice" type="button" data-question="3" data-answer="false" aria-label="문제 4 X" aria-pressed="false">X</button></div><p class="quiz-feedback" aria-live="polite" hidden></p></fieldset>
+<fieldset class="quiz-question"><legend>문제 5 / 5</legend><p>데이터를 기기 안에서 처리하면 서버로 전송하는 데이터를 줄일 수 있다.</p><div class="quiz-choices"><button class="quiz-choice" type="button" data-question="4" data-answer="true" aria-label="문제 5 O" aria-pressed="false">O</button><button class="quiz-choice" type="button" data-question="4" data-answer="false" aria-label="문제 5 X" aria-pressed="false">X</button></div><p class="quiz-feedback" aria-live="polite" hidden></p></fieldset>
+    </div><div class="quiz-footer"><p class="quiz-score" id="quizScore" role="status">0 / 5문제 완료 · 정답 0개</p><button class="outline-btn" type="button" id="quizReset">다시 풀기</button></div>
   </dialog>
 
   <script>
+
+    const quizDialog = document.getElementById('deviceQuizDialog');
+    const quizQuestions = [["온디바이스 AI는 스마트폰이나 센서 기기 자체에서 AI 추론을 수행할 수 있다.",true,"온디바이스 AI는 데이터를 기기에서 처리하고 모델을 실행할 수 있습니다."],["온디바이스 AI는 추론할 때 반드시 인터넷에 연결되어 있어야 한다.",false,"모델과 필요한 데이터가 기기에 있으면 인터넷 없이도 추론할 수 있습니다."],["모델 양자화는 모델 크기와 메모리 사용량을 줄이는 데 활용할 수 있다.",true,"양자화는 수치 표현의 정밀도를 낮춰 모델을 작게 만들 수 있으며, 정확도 변화도 확인해야 합니다."],["온디바이스 AI를 만들 때는 기기의 메모리와 배터리 사용량을 고려할 필요가 없다.",false,"기기의 제한된 메모리, 연산 능력과 전력 사용량을 함께 고려해야 합니다."],["데이터를 기기 안에서 처리하면 서버로 전송하는 데이터를 줄일 수 있다.",true,"로컬 처리는 외부로 보내는 데이터를 줄일 수 있습니다. 기기 자체의 보안도 함께 고려해야 합니다."]];
+    const quizAnswers = new Map();
+    const quizScore = document.getElementById('quizScore');
+    document.getElementById('deviceQuizBtn').addEventListener('click', () => quizDialog.showModal());
+    quizDialog.querySelector('.modal-close').addEventListener('click', () => quizDialog.close());
+    quizDialog.addEventListener('click', event => {
+      const r = quizDialog.getBoundingClientRect();
+      if (event.target === quizDialog && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) quizDialog.close();
+    });
+    quizDialog.querySelectorAll('.quiz-choice').forEach(button => button.addEventListener('click', () => {
+      const index = Number(button.dataset.question);
+      if (quizAnswers.has(index)) return;
+      const correct = (button.dataset.answer === 'true') === quizQuestions[index][1];
+      quizAnswers.set(index, correct);
+      const fieldset = button.closest('fieldset');
+      fieldset.querySelectorAll('.quiz-choice').forEach(choice => {
+        choice.setAttribute('aria-pressed', String(choice === button));
+        choice.disabled = true;
+      });
+      const feedback = fieldset.querySelector('.quiz-feedback');
+      feedback.hidden = false;
+      feedback.textContent = (correct ? '정답입니다! ' : '아쉬워요! ') + '정답: ' + (quizQuestions[index][1] ? 'O' : 'X') + ' — ' + quizQuestions[index][2];
+      const score = [...quizAnswers.values()].filter(Boolean).length;
+      quizScore.textContent = quizAnswers.size === 5 ? '퀴즈 완료! 5문제 중 ' + score + '문제 정답' : quizAnswers.size + ' / 5문제 완료 · 정답 ' + score + '개';
+    }));
+    document.getElementById('quizReset').addEventListener('click', () => {
+      quizAnswers.clear();
+      quizDialog.querySelectorAll('.quiz-choice').forEach(button => { button.disabled = false; button.setAttribute('aria-pressed', 'false'); });
+      quizDialog.querySelectorAll('.quiz-feedback').forEach(feedback => { feedback.hidden = true; feedback.textContent = ''; });
+      quizScore.textContent = '0 / 5문제 완료 · 정답 0개';
+      quizDialog.querySelector('.quiz-choice').focus();
+    });
+
     const menuBtn = document.querySelector('.menu-btn');
     const nav = document.querySelector('.main-nav');
     menuBtn.addEventListener('click', () => {
