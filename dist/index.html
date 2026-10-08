@@ -364,7 +364,7 @@
       padding-block: var(--section-space); gap: clamp(20px, 3vw, 44px);
     }
     .eyebrow { margin-bottom: 16px; font-size: .8rem; }
-    .hero h1 { font-size: clamp(2.6rem, min(6.4vw, 12svh), 6.8rem); line-height: 1; letter-spacing: -.07em; }
+    .hero h1 { font-size: clamp(2.6rem, min(6.4vw, 11svh), 6.8rem); line-height: 1; letter-spacing: -.07em; }
     .hero-punch { margin-top: 18px; font-size: clamp(1.2rem, 2.2vw, 2rem); }
     .hero-sub { font-size: 1rem; }
     .hero-actions { margin-top: 20px; gap: 10px; }
@@ -438,7 +438,7 @@
       :root { --section-space: 28px; }
       .main-nav { inset-block-start: var(--header-height); }
       .hero { min-height: auto; gap: 24px; }
-      .hero h1 { font-size: clamp(2.5rem, 12.5vw, 4.5rem); }
+      .hero h1 { font-size: clamp(2.5rem, 12vw, 4.5rem); }
       .hero-reel { width: 100%; margin-top: 0; }
       .reel-screen { aspect-ratio: 16 / 9; max-height: 32svh; }
       .hero-actions > * { width: auto; padding-inline: 14px; font-size: .85rem; }
@@ -463,10 +463,10 @@
       .track-label { padding: 5px 10px; }
       .info-row { padding-block: 6px; }
     }
-    .hero h1 { display: flex; flex-direction: column; align-items: flex-start; gap: .12em; text-wrap: nowrap; }
-    .hero-title-brand { font-size: .65em; line-height: .95; letter-spacing: -.055em; }
+    .hero h1 { display: flex; flex-direction: column; align-items: flex-start; gap: .1em; text-wrap: nowrap; }
+    .hero-title-brand { font-size: 1em; line-height: .95; letter-spacing: -.055em; font-weight: 1000; }
     .hero-title-main { display: inline-block; padding: .04em .12em .1em; color: var(--paper); background: var(--ink); box-shadow: 6px 6px 0 var(--yellow); }
-    .hero-title-open { display: inline-block; margin-top: .1em; padding: .06em .3em .14em; font-size: .55em; line-height: 1; color: var(--ink); background: var(--yellow); border: 2px solid var(--ink); transform: rotate(-3deg); }
+    .hero-title-open { display: inline-block; margin-top: .1em; padding: .06em .3em .14em; font-size: 1em; line-height: .95; font-weight: 1000; color: var(--ink); background: var(--yellow); border: 2px solid var(--ink); transform: rotate(-3deg); }
     .hero::before { opacity: .08; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
