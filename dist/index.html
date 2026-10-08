@@ -246,6 +246,41 @@
     details[open] summary::after { content: "−"; }
     details p { max-width: 760px; margin: 0; padding: 0 0 28px; color: rgba(11,23,21,.72); font-weight: 640; }
 
+    .hackathon-promo { padding: 0 clamp(20px, 6vw, 90px) clamp(86px, 10vw, 150px); background: var(--paper); }
+    .hackathon-card {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr); gap: clamp(30px, 6vw, 90px); align-items: end;
+      min-height: 410px; max-width: 1420px; margin: auto; padding: clamp(34px, 5vw, 72px);
+      color: #f7f7f1; background: #0d1320; border: 3px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .hackathon-card::before {
+      content: ""; position: absolute; inset: 0; z-index: -2; opacity: .18;
+      background: linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+      background-size: 42px 42px; transform: perspective(620px) rotateX(54deg) scale(1.5); transform-origin: 70% 100%;
+    }
+    .hackathon-card::after {
+      content: "AI+"; position: absolute; z-index: -1; right: 2%; top: 50%; transform: translateY(-56%);
+      color: #222d3d; font-size: clamp(9rem, 24vw, 23rem); font-weight: 1000; line-height: .7; letter-spacing: -.12em;
+    }
+    .hackathon-card:hover { transform: translate(-4px, -4px); box-shadow: 18px 18px 0 var(--ink); }
+    .hackathon-card:focus-visible { outline: 5px solid #ff7a1a; outline-offset: 5px; }
+    .hackathon-copy, .hackathon-side { position: relative; z-index: 1; }
+    .hackathon-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 26px; color: #ff8a22; font-size: .82rem; font-weight: 950; letter-spacing: .13em; text-transform: uppercase; }
+    .hackathon-kicker::before { content: ""; width: 11px; height: 11px; background: #ff8a22; }
+    .hackathon-card h2 { margin: 0; max-width: 900px; font-size: clamp(3rem, 6.5vw, 7rem); line-height: .88; letter-spacing: -.075em; }
+    .hackathon-card h2 span { color: #ff8a22; }
+    .hackathon-desc { max-width: 700px; margin: 24px 0 0; color: rgba(255,255,255,.72); font-size: clamp(1rem, 1.4vw, 1.2rem); font-weight: 670; }
+    .hackathon-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+    .hackathon-meta span { padding: 8px 12px; border: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.82); font-size: .78rem; font-weight: 850; letter-spacing: .04em; }
+    .hackathon-side { display: grid; gap: 28px; justify-items: end; text-align: right; }
+    .hackathon-prompt { color: rgba(255,255,255,.5); font: 800 .74rem/1.5 monospace; letter-spacing: .14em; }
+    .hackathon-prize small { display: block; color: rgba(255,255,255,.58); font-weight: 800; }
+    .hackathon-prize strong { display: block; color: #ff8a22; font-size: clamp(2.8rem, 5vw, 5.2rem); line-height: 1; letter-spacing: -.07em; }
+    .hackathon-cta { display: inline-flex; align-items: center; gap: 22px; min-height: 58px; padding: 0 22px; color: var(--ink); background: #ff8a22; border: 2px solid #ff8a22; font-weight: 950; }
+    .hackathon-cta b { font-size: 1.45rem; transition: transform .2s ease; }
+    .hackathon-card:hover .hackathon-cta b { transform: translate(4px, -4px); }
+
     footer { padding: 44px clamp(20px, 6vw, 90px); color: white; background: var(--ink); }
     .footer-inner { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; max-width: 1420px; margin: auto; }
     .footer-brand { font-size: clamp(1.8rem, 3vw, 3.3rem); font-weight: 1000; letter-spacing: -.05em; }
@@ -282,6 +317,9 @@
       .video-card { display: grid; grid-template-columns: .9fr 1.1fr; }
       .info-sticky { position: static; }
       .apply-actions { flex-direction: row; min-width: 0; flex-wrap: wrap; }
+      .hackathon-card { grid-template-columns: 1fr; }
+      .hackathon-side { grid-template-columns: 1fr auto; align-items: end; justify-items: start; text-align: left; }
+      .hackathon-prompt { grid-column: 1 / -1; }
     }
 
     @media (max-width: 640px) {
@@ -309,6 +347,12 @@
       .info-row { grid-template-columns: 1fr; gap: 6px; }
       .benefit-grid { grid-template-columns: 1fr; }
       .apply-actions { display: grid; }
+      .hackathon-promo { padding-bottom: 80px; }
+      .hackathon-card { min-height: 560px; padding: 30px 24px; }
+      .hackathon-card h2 { font-size: clamp(2.9rem, 15vw, 4.8rem); }
+      .hackathon-side { grid-template-columns: 1fr; justify-items: stretch; }
+      .hackathon-prize { text-align: left; }
+      .hackathon-cta { justify-content: space-between; }
       .footer-inner { grid-template-columns: 1fr; }
       .footer-meta { text-align: left; }
     }
@@ -535,6 +579,26 @@
         <details><summary>온디바이스 PBL의 일정과 선발 인원은 언제 공개되나요?</summary><p>세부 운영 정보는 공식 모집 공지를 통해 순차 안내될 예정입니다. 현재 페이지의 생성형AI 일정과 선발 인원은 제공된 모집 포스터를 기준으로 작성되었습니다.</p></details>
         <details><summary>수업은 온라인으로 진행되나요?</summary><p>제공된 생성형AI PBL 모집 포스터 기준으로 사전교육과 본교육 모두 대면으로 운영됩니다. 과정별 세부 장소와 준비물은 선발 후 안내됩니다.</p></details>
       </div>
+    </section>
+
+    <section class="hackathon-promo" id="hackathon" aria-labelledby="hackathon-title">
+      <a class="hackathon-card reveal" href="https://awsaimaestro.vercel.app/#home" target="_blank" rel="noopener noreferrer" aria-label="AWS AI 마에스트로 해커톤 홍보 페이지 새 창에서 보기">
+        <div class="hackathon-copy">
+          <p class="hackathon-kicker">Bootcamp special program · AWS × PNU</p>
+          <h2 id="hackathon-title"><span>AWS AI</span><br>마에스트로<br>해커톤</h2>
+          <p class="hackathon-desc">부산의 문제를 풀고, AI의 가능성을 넓히다. 생성형 AI와 클라우드로 실제로 작동하는 변화를 만드는 경쟁형 프로젝트입니다.</p>
+          <div class="hackathon-meta" aria-label="해커톤 주요 일정">
+            <span>사전교육 11.19</span>
+            <span>해커톤 11.20–21</span>
+            <span>아스티호텔 부산</span>
+          </div>
+        </div>
+        <div class="hackathon-side">
+          <span class="hackathon-prompt">IDEA → BUILD → IMPACT</span>
+          <div class="hackathon-prize"><small>총 시상금</small><strong>600만원</strong></div>
+          <span class="hackathon-cta">해커톤 페이지 보기 <b aria-hidden="true">↗</b></span>
+        </div>
+      </a>
     </section>
   </main>
 
