@@ -364,7 +364,7 @@
       padding-block: var(--section-space); gap: clamp(20px, 3vw, 44px);
     }
     .eyebrow { margin-bottom: 16px; font-size: .8rem; }
-    .hero h1 { font-size: clamp(2.5rem, min(5.2vw, 8.5svh), 5.25rem); line-height: .94; }
+    .hero h1 { font-size: clamp(2.6rem, min(6.4vw, 12svh), 6.8rem); line-height: 1; letter-spacing: -.07em; }
     .hero-punch { margin-top: 18px; font-size: clamp(1.2rem, 2.2vw, 2rem); }
     .hero-sub { font-size: 1rem; }
     .hero-actions { margin-top: 20px; gap: 10px; }
@@ -438,7 +438,7 @@
       :root { --section-space: 28px; }
       .main-nav { inset-block-start: var(--header-height); }
       .hero { min-height: auto; gap: 24px; }
-      .hero h1 { font-size: clamp(2.5rem, 11vw, 4rem); }
+      .hero h1 { font-size: clamp(2.5rem, 12.5vw, 4.5rem); }
       .hero-reel { width: 100%; margin-top: 0; }
       .reel-screen { aspect-ratio: 16 / 9; max-height: 32svh; }
       .hero-actions > * { width: auto; padding-inline: 14px; font-size: .85rem; }
@@ -463,6 +463,11 @@
       .track-label { padding: 5px 10px; }
       .info-row { padding-block: 6px; }
     }
+    .hero h1 { display: flex; flex-direction: column; align-items: flex-start; gap: .12em; text-wrap: nowrap; }
+    .hero-title-brand { font-size: .65em; line-height: .95; letter-spacing: -.055em; }
+    .hero-title-main { display: inline-block; padding: .04em .12em .1em; color: var(--paper); background: var(--ink); box-shadow: 6px 6px 0 var(--yellow); }
+    .hero-title-open { display: inline-block; margin-top: .1em; padding: .06em .3em .14em; font-size: .55em; line-height: 1; color: var(--ink); background: var(--yellow); border: 2px solid var(--ink); transform: rotate(-3deg); }
+    .hero::before { opacity: .08; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
@@ -491,7 +496,7 @@
     <section class="hero" id="top">
       <div class="hero-copy">
         <p class="eyebrow">2026 Winter Immersive PBL</p>
-        <h1>PNU AI<br>겨울부트캠프<br><span class="outline">오픈</span></h1>
+        <h1><span class="hero-title-brand">PNU AI</span><span class="hero-title-main">겨울부트캠프</span><span class="hero-title-open">오픈</span></h1>
         <p class="hero-punch">기업 과제를 AI 서비스로.</p>
         <p class="hero-sub">듣는 수업보다, 끝까지 만드는 한 달. 생성형AI와 온디바이스AI 두 개의 몰입형 트랙에서 실제 문제를 정의하고 작동하는 결과물로 완성합니다.</p>
         <div class="hero-actions">
