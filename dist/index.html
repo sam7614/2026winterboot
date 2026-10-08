@@ -389,6 +389,14 @@
       .header-cta { display: inline-flex; padding-inline: 12px; min-height: 40px; font-size: .8rem; }
     }
 
+    .hackathon-application { display: grid; gap: 8px; margin: 16px 0 0; padding-block: 12px; border-block: 1px solid rgba(255,255,255,.2); }
+    .hackathon-application > div { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+    .hackathon-application dt { color: #ff8a22; font-size: .82rem; font-weight: 900; }
+    .hackathon-application dd { margin: 0; color: #f7f7f1; font-size: .9rem; font-weight: 750; word-break: keep-all; }
+    .hackathon-application small { display: block; margin-top: 3px; color: rgba(255,255,255,.6); font-size: .75rem; font-weight: 550; }
+    @media (max-width: 640px) {
+      .hackathon-application > div { grid-template-columns: 64px minmax(0, 1fr); gap: 8px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
@@ -622,6 +630,10 @@
           <p class="hackathon-kicker">AWS × PNU · 부트캠프 특별 프로그램</p>
           <h2 id="hackathon-title"><span>AWS AI</span><br>마에스트로 해커톤</h2>
           <p class="hackathon-desc">생성형 AI와 클라우드로 부산의 문제를 해결하는 해커톤</p>
+          <dl class="hackathon-application" aria-label="해커톤 신청 안내">
+            <div><dt>신청 대상</dt><dd>첨단산업 부트캠프 참여 학부생 · 30명</dd></div>
+            <div><dt>신청 기간</dt><dd>2026.10.12–10.18 23:59까지 <small>1차 모집 · 미달 시 추가 모집</small></dd></div>
+          </dl>
           <div class="hackathon-meta" aria-label="해커톤 주요 일정">
             <span>사전교육 11.19</span>
             <span>해커톤 11.20–21</span>
