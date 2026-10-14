@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1473, initial-scale=1">
+  <title>PNU AI 겨울부트캠프 홍보 배너</title>
+  <style>
+    :root {
+      --ink: #0b1715;
+      --paper: #f7f7f1;
+      --green: #59c340;
+      --green-hi: #9df56c;
+      --orange: #ff8a22;
+      --yellow: #ffd93d;
+      --muted: #a8b4ae;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 1473px;
+      height: 510px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--paper);
+      font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+    }
+
+    .banner {
+      position: absolute;
+      inset: 16px 38px 36px 15px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.36fr) minmax(410px, .76fr);
+      color: var(--paper);
+      text-decoration: none;
+      background:
+        linear-gradient(90deg, rgba(157,245,108,.045) 1px, transparent 1px) 0 0 / 56px 56px,
+        linear-gradient(rgba(157,245,108,.045) 1px, transparent 1px) 0 0 / 56px 56px,
+        var(--ink);
+      border: 3px solid var(--ink);
+      box-shadow: 18px 18px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: -80px;
+      right: -80px;
+      bottom: -148px;
+      height: 310px;
+      opacity: .18;
+      transform: perspective(420px) rotateX(61deg);
+      transform-origin: 50% 100%;
+      background:
+        linear-gradient(90deg, transparent 49.4%, rgba(157,245,108,.42) 50%, transparent 50.6%) 0 0 / 78px 100%,
+        linear-gradient(transparent 49.4%, rgba(157,245,108,.42) 50%, transparent 50.6%) 0 0 / 100% 46px;
+      pointer-events: none;
+    }
+
+    .copy {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      padding: 27px 36px 24px;
+      border-right: 1px solid rgba(247,247,241,.18);
+    }
+
+    .kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 13px;
+      color: #c9d2ce;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 68px;
+      line-height: .95;
+      font-weight: 1000;
+      letter-spacing: -.075em;
+      white-space: nowrap;
+    }
+
+    h1 .brand {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--green-hi);
+      font-size: 1.02em;
+      letter-spacing: -.08em;
+    }
+
+    h1 .open {
+      display: inline-block;
+      margin-left: 15px;
+      padding: 3px 14px 7px;
+      color: var(--ink);
+      background: var(--yellow);
+      border: 2px solid var(--paper);
+      box-shadow: 5px 5px 0 var(--orange);
+      font-size: .47em;
+      letter-spacing: -.05em;
+      vertical-align: 11px;
+      transform: rotate(-2deg);
+    }
+
+    .lead {
+      margin: 17px 0 14px;
+      color: #dce4e0;
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 760;
+      letter-spacing: -.025em;
+    }
+
+    .facts {
+      display: flex;
+      gap: 32px;
+      width: 100%;
+      margin: 0;
+      padding: 13px 0 0;
+      border-top: 1px solid rgba(247,247,241,.28);
+    }
+
+    .facts div {
+      display: grid;
+      grid-template-columns: auto auto;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .facts dt {
+      color: var(--green-hi);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .04em;
+    }
+
+    .facts dd {
+      margin: 0;
+      color: var(--paper);
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -.035em;
+    }
+
+    .programs {
+      display: flex;
+      gap: 9px;
+      margin-top: 13px;
+    }
+
+    .programs span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      color: var(--ink);
+      border: 1px solid var(--paper);
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: -.03em;
+    }
+
+    .programs span:first-child { background: var(--green-hi); }
+    .programs span:last-child { background: var(--orange); }
+
+    .visual {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      padding: 26px 30px 24px 31px;
+      overflow: hidden;
+    }
+
+    .ghost {
+      position: absolute;
+      right: -26px;
+      top: -24px;
+      z-index: -1;
+      color: rgba(247,247,241,.07);
+      font-family: Arial Black, Arial, sans-serif;
+      font-size: 222px;
+      line-height: 1;
+      font-weight: 1000;
+      letter-spacing: -.13em;
+      white-space: nowrap;
+    }
+
+    .visual-title {
+      margin: 2px 0 20px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    .track {
+      position: relative;
+      width: 100%;
+      min-height: 76px;
+      margin-bottom: 10px;
+      padding: 14px 18px 12px 64px;
+      color: var(--ink);
+      border: 2px solid var(--paper);
+      box-shadow: 5px 5px 0 rgba(247,247,241,.2);
+    }
+
+    .track.one { background: var(--green); }
+    .track.two { background: var(--orange); }
+
+    .track b {
+      position: absolute;
+      left: 17px;
+      top: 13px;
+      font-family: Arial Black, Arial, sans-serif;
+      font-size: 27px;
+      line-height: 1;
+      letter-spacing: -.09em;
+    }
+
+    .track strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1.08;
+      font-weight: 1000;
+      letter-spacing: -.055em;
+    }
+
+    .track small {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .cta-row {
+      position: absolute;
+      left: 31px;
+      right: 30px;
+      bottom: 24px;
+      display: flex;
+      align-items: stretch;
+      height: 48px;
+    }
+
+    .url {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding: 0 13px;
+      color: #cad4cf;
+      border: 1px solid rgba(247,247,241,.35);
+      border-right: 0;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .015em;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-width: 150px;
+      color: var(--ink);
+      background: var(--yellow);
+      border: 2px solid var(--yellow);
+      font-size: 15px;
+      font-weight: 1000;
+      letter-spacing: -.04em;
+    }
+
+    .cta i {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <a class="banner" href="https://2026winterboot.vercel.app/" target="_blank" rel="noopener" aria-label="PNU AI 겨울부트캠프 모집 페이지 자세히 보기">
+    <section class="copy">
+      <p class="kicker">부산대학교 AI융합교육원 · 2026 겨울계절학기</p>
+      <h1>
+        <span class="brand">PNU AI</span>
+        겨울부트캠프<span class="open">오픈</span>
+      </h1>
+      <p class="lead">기업 과제를 AI 서비스로. 한 달 동안 끝까지 만드는 몰입형 PBL.</p>
+      <dl class="facts">
+        <div><dt>모집 마감</dt><dd>2026.10.25.(일)</dd></div>
+        <div><dt>모집 인원</dt><dd>트랙별 30명</dd></div>
+        <div><dt>이수 학점</dt><dd>전공선택 3학점</dd></div>
+      </dl>
+      <div class="programs" aria-label="운영 프로그램">
+        <span>생성형AI PBL</span>
+        <span>온디바이스 PBL</span>
+      </div>
+    </section>
+    <section class="visual" aria-hidden="true">
+      <div class="ghost">AI×2</div>
+      <p class="visual-title">TWO IMMERSIVE TRACKS</p>
+      <div class="track one">
+        <b>01</b>
+        <strong>생성형AI PBL</strong>
+        <small>아이디어에서 작동하는 AI 서비스까지</small>
+      </div>
+      <div class="track two">
+        <b>02</b>
+        <strong>온디바이스 PBL</strong>
+        <small>코드에서 디바이스 배포까지</small>
+      </div>
+      <div class="cta-row">
+        <span class="url">2026winterboot.vercel.app</span>
+        <span class="cta">자세히 보기 <i>↗</i></span>
+      </div>
+    </section>
+  </a>
+</body>
+</html>
