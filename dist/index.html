@@ -119,7 +119,7 @@
     .hero .outline-btn { background: rgba(255,255,255,.2); }
     .deadline { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 30px; font-weight: 850; }
     .deadline span { padding: 7px 12px; border: 1.5px solid var(--ink); background: rgba(255,255,255,.3); }
-    #countdown { background: var(--yellow); }
+    .deadline span:first-child { background: var(--yellow); }
 
     .hero-reel { width: min(100%, 620px); justify-self: center; }
     .reel-screen {
@@ -272,6 +272,8 @@
     .benefit { min-height: 130px; padding: 22px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 5px 5px 0 var(--ink); font-weight: 850; }
     .benefit b { display: block; color: var(--teal); font-size: 1.8rem; line-height: 1; }
     .benefit.edge b { color: #c84e12; }
+    .benefit.key { background: var(--yellow); font-size: 1.32rem; line-height: 1.35; }
+    .benefit.key b { font-size: 2.3rem; }
 
     .apply { padding: clamp(86px, 11vw, 170px) clamp(20px, 6vw, 90px); color: white; background: var(--teal); border-bottom: 3px solid var(--ink); position: relative; }
     .apply::after { content: "APPLY · 2026 · APPLY · 2026"; position: absolute; right: -80px; top: 40px; font-size: 7rem; font-weight: 1000; opacity: .06; white-space: nowrap; transform: rotate(6deg); }
@@ -479,8 +481,8 @@
           <a class="outline-btn" href="#recap">수업 현장 먼저 보기</a>
         </div>
         <div class="deadline" aria-label="모집 일정">
-          <span>생성형AI 10.12 시작 · 온디바이스 10.14 시작 · 10.25 마감</span>
-          <span id="countdown">모집 시작 D-4</span>
+          <span>모집기간: 10.14. ~ 11.08.</span>
+          <span id="countdown">미달 시 추가 모집 예정</span>
         </div>
       </div>
       <div class="hero-reel" aria-label="지난 여름계절학기 PBL 현장 스케치 영상">
@@ -670,15 +672,15 @@
         </div>
         <div class="reveal">
           <dl class="info-list">
-            <div class="info-row"><dt>모집 기간</dt><dd><span class="info-track-line"><b class="info-track-pill">생성형AI</b><span>2026.10.12.(월) — 10.25.(일)</span></span><span class="info-track-line"><b class="info-track-pill edge">온디바이스</b><span>2026.10.14.(수) — 10.25.(일)</span></span><small>미달 시 추가 모집</small></dd></div>
-            <div class="info-row"><dt>지원 자격</dt><dd>정보컴퓨터공학부 3–4학년 재학생, PCC Lv.1 이상 합격자<small>온디바이스 트랙은 머신러닝·딥러닝 기초 또는 컴퓨터 비전 프로젝트 경험자를 권장하며, Python에 능숙한 AI 입문자도 지원할 수 있습니다.</small></dd></div>
+            <div class="info-row"><dt>모집 기간</dt><dd><span class="info-track-line"><b class="info-track-pill">생성형AI</b><span>2026.10.14.(수) — 11.08.(일)</span></span><span class="info-track-line"><b class="info-track-pill edge">온디바이스</b><span>2026.10.14.(수) — 11.08.(일)</span></span><small>미달 시 추가 모집</small></dd></div>
+            <div class="info-row"><dt>지원 자격</dt><dd>정보컴퓨터공학부 3–4학년 재학생<small>온디바이스 트랙은 머신러닝·딥러닝 기초 또는 컴퓨터 비전 프로젝트 경험자를 권장하며, Python에 능숙한 AI 입문자도 지원할 수 있습니다.</small></dd></div>
             <div class="info-row"><dt>선발 기준</dt><dd>트랙별 30명 · 이수 교과목, 자기소개서, 전공·학년, PCC 성적 등을 종합 평가<small>중·고급 몰입형 교육과정 미수료자 우선 선발</small></dd></div>
             <div class="info-row"><dt>제출 서류</dt><dd>참가신청서, 활동계획서, PCC 성적 증명서, 참가동의서</dd></div>
-            <div class="info-row"><dt>교육 일정</dt><dd><span class="info-track-line"><b class="info-track-pill">생성형AI</b><span>사전교육 2026.12.22–12.23 · 본교육 2026.12.28–2027.01.21</span></span><span class="info-track-line"><b class="info-track-pill edge">온디바이스</b><span>본교육 2026.12.29–2027.01.21 · NVIDIA DLI 2027.01.07–01.08</span></span><small>두 과정 모두 대면 운영</small></dd></div>
+            <div class="info-row"><dt>교육 일정</dt><dd><span class="info-track-line"><b class="info-track-pill">생성형AI</b><span>사전교육 2026.12.22–12.23 · 본교육 2026.12.28–2027.01.21 · 성과공유회 2027.01.22</span></span><span class="info-track-line"><b class="info-track-pill edge">온디바이스</b><span>본교육 2026.12.29–2027.01.21 · NVIDIA DLI 2027.01.07–01.08</span></span><small>두 과정 모두 대면 운영</small></dd></div>
             <div class="info-row"><dt>문의</dt><dd><span class="info-track-line"><b class="info-track-pill">생성형AI</b><span>051-510-3526 · lyj55@pusan.ac.kr</span></span><span class="info-track-line"><b class="info-track-pill edge">온디바이스</b><span>051-510-3529 · da0227@pusan.ac.kr</span></span></dd></div>
           </dl>
           <div class="benefit-grid" aria-label="교육 수료 혜택">
-            <div class="benefit"><b>03</b>전공선택 3학점<br>(S/U, 수업료 무료)</div>
+            <div class="benefit key"><b>03</b>전공선택 3학점<br>(S/U, 수업료 무료)</div>
             <div class="benefit"><b>AWS</b>공식 수료증·디지털 배지</div>
             <div class="benefit edge"><b>NVIDIA</b>DLI 공식 커리큘럼 수료증</div>
             <div class="benefit edge"><b>6개월</b>AWS Skill Builder 구독 지원</div>
@@ -695,7 +697,6 @@
       <div class="apply-inner reveal">
         <div>
           <h2>이번 겨울,<br><span>완성까지</span> 가보자.</h2>
-          <p class="apply-copy">생성형AI는 10월 12일, 온디바이스는 10월 14일부터 모집하며 두 트랙 모두 10월 25일 마감합니다. 공통 제출 서류와 선택한 트랙의 전체 대면 일정을 미리 확인하세요.</p>
         </div>
         <div class="apply-actions">
           <a class="solid-btn" href="#tracks">신청하기 ↗</a>
@@ -752,9 +753,8 @@
     <div class="modal-head"><h2>지원 전 체크리스트</h2><button class="modal-close" type="button" aria-label="닫기">×</button></div>
     <div class="checklist">
       <label class="check-item"><input type="checkbox"> 정보컴퓨터공학부 3–4학년 재학 여부 확인</label>
-      <label class="check-item"><input type="checkbox"> PCC Lv.1 이상 합격 여부 확인</label>
       <label class="check-item"><input type="checkbox"> 참가신청서·활동계획서 준비</label>
-      <label class="check-item"><input type="checkbox"> PCC 성적 증명서·참가동의서 준비</label>
+      <label class="check-item"><input type="checkbox"> 참가동의서 준비</label>
       <label class="check-item"><input type="checkbox"> 선택한 트랙의 사전·본교육 전체 대면 일정 확보</label>
     </div>
     <p class="modal-note">체크 상태는 이 브라우저에만 임시로 표시됩니다. 공식 신청 페이지에서 최신 안내와 제출 서류를 확인하세요.</p>
@@ -822,14 +822,6 @@
     } else {
       reelVideo.play().catch(() => {});
     }
-
-    const countdown = document.getElementById('countdown');
-    const now = new Date();
-    const start = new Date('2026-10-12T00:00:00+09:00');
-    const end = new Date('2026-10-25T23:59:59+09:00');
-    if (now < start) countdown.textContent = `모집 시작 D-${Math.ceil((start - now) / 86400000)}`;
-    else if (now <= end) countdown.textContent = `모집 마감 D-${Math.ceil((end - now) / 86400000)}`;
-    else countdown.textContent = '모집 종료 · 추가 공지 확인';
 
     const dialog = document.getElementById('checklistDialog');
     document.getElementById('checklistBtn').addEventListener('click', () => dialog.showModal());
